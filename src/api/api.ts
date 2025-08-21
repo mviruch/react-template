@@ -1,4 +1,4 @@
-import axios, { type AxiosResponse, type AxiosInstance, type AxiosRequestConfig } from "axios";
+import axios, { type AxiosInstance, type AxiosRequestConfig } from "axios";
 
 interface ApiResponse<T> {
   err: number;
@@ -24,8 +24,12 @@ class Request {
   }
 
   private async do<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
-    const res = await this.req<T>(url, config);
-    return res.data;
+    const res = await this.req<ApiResponse<T>>(url, config);
+    const { err, msg, data } = res.data;
+    if (err !== 0) {
+      throw new Error(`API Error: ${msg}`);
+    }
+    return data;
   }
 
   static create(): RequestType {

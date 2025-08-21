@@ -1,21 +1,24 @@
-import { useState } from 'react'
-import './App.css'
+import logo from '@assets/logo.svg';
+import './App.scss';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <h1>React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/pages/app/App.tsx</code> and save to test HMR
+          Edit <code>src/App.js</code> and save to reload.
         </p>
-      </div>
-    </>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   )
 }
 

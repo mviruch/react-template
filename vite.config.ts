@@ -7,11 +7,14 @@ const pathResolve = (path: string): string => resolve(root, path)
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react()
+  ],
   resolve: {
     alias: {
       '@': pathResolve('./src'),
       '@api': pathResolve('./src/api'),
+      '@assets': pathResolve('./src/assets'),
       '@components': pathResolve('./src/components'),
       '@hooks': pathResolve('./src/hooks'),
       '@pages': pathResolve('./src/pages'),
